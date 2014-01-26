@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-09T08:43:27+01:00
+
+====== grecore files ======
+Creatted Monday 09 December 2013
+
+**to see the ofending binary**
+strings core_file | grep "_="
+

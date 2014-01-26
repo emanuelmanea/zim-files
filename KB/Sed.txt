@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-21T10:11:09+01:00
+
+====== Sed ======
+Created Thursday 21 November 2013
+
+**replaces any number of white spaces with just one**
+sed "s/^ *//;s/ *$//;s/ \{1,\}/ /g"
+
+s/^ *// deletes spaces at the start of the line
+s/ *$// deletes spaces at the end of the line
+

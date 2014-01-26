@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-05T12:43:08+01:00
+
+====== redirections ======
+Created Tuesday 05 November 2013
+
+**<&n**
+You use this operator to redirect standard input from file descriptor n.
+
+**>&n**
+You use this operator to redirect standard input to file descriptor n.
+
+**n< filename**
+You use this operator with a filename to redirect descriptor n from the
+specified file.
+
+**n> filename**
+You use this operator with a filename to redirect descriptor n to the
+specified file. Unlike ordinary redirection, this will not overwrite an existing file.
+
+**n>| filename**
+You use this operator with a filename to redirect descriptor n to the
+specified file, overriding the noclobber environment variable if it is set.
+
+**n>> filename**
+You use this operator with a filename to redirect a descriptor to the specified file.
+This will redirect to a file but, unlike ordinary redirection, this will append to an existing file. 
+
+**$(< filename)**
+You use this form of command substitution to pass the entire contents of a file to a command as an argument. 

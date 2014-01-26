@@ -1,0 +1,63 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-15T13:02:47+01:00
+
+====== contacts ======
+Created Wednesday 15 January 2014
+
+Jaroslaw Paluchiewicz
+Service Delivery Manager - Preh GmbH
+48-32-662-5107 / 12:26 PM
+I am available @ Home
+E-mail
+jaroslaw.paluchiewicz@pl.ibm.com
+Phone
+48-32-662-5107
+Address
+Ul Francuska 36
+Building B
+Katowice 40-028
+Poland
+
+Marco Wilhelm
+Chief Architect
+39-962829 / 49-7034 2742 829 / 12:26 PM
+I am available 
+E-mail
+marco.wilhelm@de.ibm.com
+Phone
+39-962829 / 49-7034 2742 829
+Address
+Wilhelm-Fay-Str. 30-34
+Frankfurt 65936
+Germany
+
+Nicole Becker
+Service Delivery Manager
+124-417238 / 49-361-397417238 / 10:46 AM
+I am in a meeting 
+E-mail
+nicole.becker@de.ibm.com
+Phone
+124-417238 / 49-361-397417238
+Address
+Parsevalstr 8-10
+Erfurt 99092
+Germany
+Sabine Kleiner
+ITD Delivery Project Executive
+119-2737 / 49-7034-15-2737
+User is Offline
+E-mail
+Sabine_Kleiner@de.ibm.com
+Phone
+119-2737 / 49-7034-15-2737
+Address
+Ibm-Allee 1
+Ehningen 71139
+Germany
+
+hasło do kdb start2012
+
+**Approval Groups Maximo1**
+oracle prehowe -> I-AHS-DE-SSOARCHIVING

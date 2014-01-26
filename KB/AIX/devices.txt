@@ -1,0 +1,52 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-14T09:57:43+01:00
+
+====== devices ======
+Created Thursday 14 November 2013
+
+lsdev -l hdisk3
+lsdev -F parent -l hdisk3
+lsdev -l vscsi0
+lsdev -p device
+
+**List WWPN**
+datapath query wwpn
+
+**take path offline**
+pcmpath set device 15 path 9 offline
+
+lsdev -Cc adapter
+		disk
+		processor
+
+
+pcmpath query eddevice 0			# lists paths for hdisk0
+pcmpath set device 0 path 9 offline		# puts 9th path of hdisk0 in offline mode
+
+rmpath -l hdisk0 -p fscsi0		# puts the paths of hdisk0 from fscsi0 in Defined state
+rmpath -d -l hdisk0 -p fscsi0	# deletes the paths of hdisk0 from fscsi0
+cfgmgr					# should rediscover the deleted paths
+
+**For deleting devices**
+**prints adapter and Y if hdisk has other connection besides that adapter to storage**
+			   **and N if the adapter has the only connection to storage**
+
+devices=`lspath | awk '{print $3}' | sort | uniq`
+for device in $devices
+  do
+    echo ""
+      for i in `lspv | awk '{print $1}'`
+        do
+          for x in "lspath -l $i | grep -v $device | grep Enabled"
+			do
+			  eval $x > /dev/null
+				if [ $? -eq 0 ]
+				  then
+					echo "$device $i Y"
+		                  else
+					echo "$device $i N"
+		                fi
+	                done
+        done
+  done

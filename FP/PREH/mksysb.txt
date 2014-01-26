@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-15T13:03:10+01:00
+
+====== mksysb ======
+Created Wednesday 15 January 2014
+
+**MKSYSB image procedure:**
+	1. **run on the host that is to be backed up:**
+		/nim/tools/nim_mksysb.script PRE -w 7 -c
+	2. verify the field described below in the log file
+		[[/tmp/nim_mksysb_prepeppp02_04-12-2013.log]]
+
+
+**Automated mksysb script**
+	[[/nim/tools/nim_mksysb.script]]
+**log file**
+	[[/tmp/nim_mksysb_prepeppp02_04-12-2013.log]]
+	**field** //Status of mksysb size check   52317696//**00**// - OK//
+		should have the bolded(last 2 fields) fields zeroed, otherwise something went wrong => repeat operation
+
+
+
+on **NIM server -> ibmpnime1 **(/etc/hosts):
+172.17.1.4          nimmksysb           # NIM Server Ehningen   
+
+[[/home/nimroot]] - directory for nim related
+
+[[/export/nim/bin/nimuser]] - script for NIM related tasks
+
+[[/import/sds]]
+[[/export/nim]]
+
+[[/export/nim/mksysb/PRE]] - mksysb images for Preh
+

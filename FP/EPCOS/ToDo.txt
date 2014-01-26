@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-24T14:30:49+01:00
+
+====== ToDo ======
+Created Friday 24 January 2014
+
+One a month you will be required to fill excel with capacity of epcp006:
+lspv | awk '{s="bootinfo -s "$1;s|getline x;sum+=x}END{printf "%.2fGB\n",sum/1024}'
+
+After epcos migrations altinst_rootvg left on system, each rootvg has 2 LUNS. This has to be cleaned up because is not required anymore and we can remove the luns also.
+Miroslaw Zylak is preparing change for that please remember about this topic.

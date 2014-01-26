@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-02T14:48:50+01:00
+
+====== Packages ======
+Created Monday 02 December 2013
+
+**to** **preview**
+/usr/lib/instl/sm_inst installp_cmd -a -Q -d '/root/Rcm_c_cpan.usr.1.22.1.0' -f '_all_latest' 	**'-p'** '-a' '-N' '-g' '-X'   '-G'
+/usr/lib/instl/sm_inst installp_cmd -a -Q -d '/root/Rcm_c.usr.1.22.30.0' -f '_all_latest' 		**'-p'** '-a' '-N' '-g' '-X'   '-G'
+
+**to install**
+/usr/lib/instl/sm_inst installp_cmd -a -Q -d '/root/Rcm_c_cpan.usr.1.22.1.0' -f '_all_latest'	'-a' '-N' '-g' '-X'   '-G'
+/usr/lib/instl/sm_inst installp_cmd -a -Q -d '/root/Rcm_c.usr.1.22.30.0' -f '_all_latest'		'-a' '-N' '-g' '-X'   '-G'

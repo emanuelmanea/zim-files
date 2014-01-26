@@ -1,0 +1,67 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-05T11:46:43+01:00
+
+====== AIX Printing ======
+Created Tuesday 05 November 2013
+
+**#lists PRINTERS JOBS and QUEUE SIZE**
+dir=/var/spool/lpd/qdir
+printers=$(ls -l $dir | cut -c68-71 | uniq )
+users=$(ls -l $dir | cut -c61-66 | uniq )
+for i in $printers; do printf "printer:%s jobs:\t%d\n" $i $(ls -l $dir | grep $i | wc -l) ; done
+
+**Checks print driver used (PS, PCL, etc)**
+/usr/lib/lpd/pio/etc/piolsvp -p
+
+**Install JedDirect printer**
+Install the "printers.hpJetDirect.attach" fileset.
+Add IPs and hostnames for your printers to your /etc/hosts file.
+Use the smit panels to configure the printer:
+	//smitty mkpq//
+	//--> hpJetDirect//
+	//--> Hewlett-Packard//
+	//--> hplj-4+//
+	//--> Do NOT make this system a BOOTP/TFTP server//
+	
+	     //PCL                                         [hppcl]//
+	//     PostScript                                  [hpps]//
+	//     HP-GL/2                                     [ ]//
+	
+	//  Printer connection characteristics//
+	//*    HOSTNAME of the JetDirect Card    [printer_hostname_in_/etc/hosts]//
+	//*    PORT                                         [9100]//
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

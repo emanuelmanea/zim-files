@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-15T11:38:02+01:00
+
+====== YUM ======
+Created Friday 15 November 2013
+
+**remove all unused dependencies**
+package-cleanup --quiet --leaves --exclude-bin | xargs yum remove -y

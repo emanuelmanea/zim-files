@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-12T14:35:05+01:00
+
+====== TSM ======
+Created Tuesday 12 November 2013
+
+**logfiles are defined in sys file**
+
+**sys file location**
+/usr/tivoli/tsm/client/ba/bin64/dsm.sys
+
+dsmc q fi
+dsmc q fi optfile=/usr/lpp/adsmcust/dsmmksysb.opt    ./path to dsmksyb.opt file -tells when was last backed up wha is defined in opt file (/usr/lpp/adsmcust contains the opt/conf files)
+
+dsmc q ba(backup) /path_to_file - gives last backup of file
+
+dsmc q ba /ossicherung/bos.obj.lesdev -optfile=/usr/lpp/adsmcust/dsmmksysb.opt
+
+----------------------
+
+**Query domain**
+dsmc q opt domain

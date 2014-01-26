@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-02T14:53:24+01:00
+
+====== ITM ======
+Created Monday 02 December 2013
+
+**SMI ITM6 CZ Germany**
+Stepan Vanek
+Joseph Dinha
+Filip Kral
+Mark Haluska
+
+**agents status**
+/opt/IBM/ITM/bin/cinfo -r
+
+**restart agents**
+[[/opt/IBM/ITM/bin/itmcmd agent stop all]]
+[[/opt/IBM/ITM/bin/itmcmd agent start all]]
+
+**delete old logs**
+[[/opt/IBM/ITM/bin/]]itmcmd audit -l both

@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-09T09:55:33+01:00
+
+====== GUEHRING ======
+Created Monday 09 December 2013
+
+**Run script after adding disks to hosts**
+[[/nim/tools/SetRecomm]]
+
+**Violations**
+
+{{./pasted_image.png}}
+{{./pasted_image001.png}}
+
+**Template**
+#Guehring: gued0001 and gued0003 - corect sudoers file
+
+# Systems in scope:
+gued0001
+gued0003
+
+# What has to be done:
+The change concerns only the file /etc/sudoers.
+The users itimagt, system, idcunix are allowed ALL. Only root should have ALL. 
+
+1. Backing up the file and copying the file to a file named /etc/sudoers-$date.
+2. Correcting the file [[/etc/sudoers]] on both hosts.
+
+# What will happen if not performed?
+The hosts will remain in non-compliant state.
+
+# Outage?
+No Outage
+
+# Contact during implementation
+emanuel.menea@pl.ibm.com

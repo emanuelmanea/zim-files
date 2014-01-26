@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-24T14:38:49+01:00
+
+====== servers ======
+Created Friday 24 January 2014
+
+**All servers are AIX 7.1**
+
+# Epcos
+10.246.0.4 epcp004 
+10.246.0.5 epcp005
+10.246.0.6 epcp006 archiwum
+
+# Preh HMC
+194.194.237.85 ibmphmc03 prehmc1
+194.194.237.86 ibmphmc04 prehmc2
+Thresholdy:
+/opt/IBM/Lotus/Notes - 80%
+/local/notesdata - 80%
+/local/translog - 60%
+/local/daos - 80%
+Only Lotus Domino.

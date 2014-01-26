@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-21T16:26:03+01:00
+
+====== ToDo ======
+Created Tuesday 21 January 2014
+
+CH10217371  - it this change will be executed starting from next month Preh will be supported in ESS6.
+
+
+**after LPM**
+1. check and configure tapes and lanfree backup
+2. unmap LUNs from old VIOS
+3. shutdown and activate LPAR to clear firmware error (before every LPAR shutdown save current configuration)
+
+**change**
+to add 4GB RAM setting in profile.
+
+{{./pasted_image.png}}
+
+There was 5G minimum, 24G current and 24G maximum. I already doubled min and max in profile. 
+We decided with Marco to double settings for all preh server, ofcourse min and maximum values, before each system reboot so please remember about it.
+
+#######################################
+
+**PANDORA report**
+{{./pasted_image001.png}}
+{{./pasted_image002.png}}
+{{./pasted_image003.png}}
+{{./pasted_image004.png}}Backup Failed
+
+What is/How to correct:
+	Unknown production status
+	Monitoring is installed
+	Monitoring is down defective
+	No Monitoring information
+	No Backup
+	Backup Succesfull
+	Backup failed

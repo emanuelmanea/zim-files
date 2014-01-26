@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-14T14:42:42+01:00
+
+====== RCM ======
+Created Thursday 14 November 2013
+
+**stop**
+AIX		[[/usr/db/RCM/scripts/stop_rcm.pl|/usr/db/RCM/scripts/stop_rcm.sh]]
+Linux	/etc/init.d/Rcm.c stop
+**start**
+AIX		[[/usr/db/RCM/scripts/stop_rcm.pl|/usr/db/RCM/scripts/start_rcm.sh]]
+Linux	/etc/init.d/Rcm.c start
+
+**INSTALL**
+make_appls.pl --installrcm
+
+**Updates**
+http://ehngsa.ibm.com/projects/r/rcm/wiki/Rcm_c/1.22.html
+
+**LOG**
+[[/var/db/work/rcm.debug]]
+
+**Software repository**
+gspinst1 - via SLS
+[[/usr/sys/inst.images/]]
+
+/tmp/test

@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-04T14:17:21+01:00
+
+====== LVM ======
+Created Monday 04 November 2013
+
+**Phisical breakdown**
+for hdisk in `lsdev -c disk | grep "Available" | awk '{print $1}'`; do printf "%-10s %-12s %-15s\n" $hdisk `getconf DISK_SIZE /dev/$hdisk` `lspv | grep "^$hdisk " | awk '{print $3}'` ; done | awk '{total+=$2} {print} END{print "------------------\nTotal:     " total " MB (" total/1024 " GB)"}'
+
+**Logical breakdown**
+printf "Volume Group      Total(MB)  Free(MB)   Used(MB)\n"; for vg in `lsvg -o`; do printf "%-18s" $vg; lsvg $vg | perl -nle 'printf "%-11s", $2 if /.*(TOTAL|FREE|USED) PPs:\s+\d+\s+\((\d+) meg.*/'; echo; done | awk '{total+=$2; free+=$3; used+=$4} {print} END{printf "---------\nTotals:           %-10s %-10s %-10s\n", total, free, used}'

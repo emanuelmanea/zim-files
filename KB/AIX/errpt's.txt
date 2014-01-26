@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-08T11:38:22+01:00
+
+====== errpt's ======
+Created Wednesday 08 January 2014
+
+**date breakdown:**
+(08 = month, 20 = day, 12 = hour, 28 = min, 10 = year)
+M  D
+012214 15 14
+012214 00 14
+012213 45 14
+0122133014
+0122131514
+0122130014

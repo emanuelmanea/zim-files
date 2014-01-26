@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-12-11T07:14:42+01:00
+
+====== HACMP ======
+Created Wednesday 11 December 2013
+
+**check nightly verification run**
+tail -10 /var/hacmp/log/clutils.log 2>/dev/null|grep detected|tail -1
+
+**change nightly autoverification schedule**
+**(after change cluster sync needed to update on other nodes)**
+smitty clautover.dialog
+**can be checked with:**
+odmget HACMPcluster
+odmget HACMPtimersvc

@@ -1,0 +1,90 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-14T10:06:39+01:00
+
+====== Boarding ======
+Created Thursday 14 November 2013
+
+
+
+#done dhlverpdb02.dhl.de.sni.ibm.com
+dhlvbwdb02.dhl.de.sni.ibm.com
+
+HMC-	149.131.228.68
+PowerMachine-	IBMDCO721
+mkvterm -m IBMDCO721 -p dhlverpdb02
+NIM-	ssh instadm@10.3.1.134
+SAN_DISKS_VW (helps to fill HDISK_DEVICE_MAPPING)
+MY_LPAR=dhlvbwdb02
+#MY_POWER=IBMDCO721
+POWER_S=$(lssyscfg -r sys -F name) && for POWER in $POWER_S; do i=$(lssyscfg -r lpar -m $POWER -F name) echo -e $POWER $i '\n'; done | grep $MY_LPAR
+MY_POWER=$( for POWER in $POWER_S; do i=$(lssyscfg -r lpar -m $POWER -F name); echo -e $POWER $i '\n'; done | grep $MY_LPAR | cut -d" " -f1 )
+
+chsysstate -m $MY_POWER -r lpar -n $MY_LPAR -o shutdown --immed --restart	# it will reboot an lpar immediately (without dump)
+chsysstate -m $MY_POWER -r lpar -n $MY_LPAR -o shutdown --immed			# will shutdown an LPAR immediatelly	
+
+chsysstate -m $MY_POWER -r lpar -n $MY_LPAR -o on -b norm -f default	#will boot the LPAR normally
+chsysstate -m $MY_POWER -r lpar -n $MY_LPAR -o on -b sms -f default	#will boot the LPAR in SMS mode
+
+mkvterm -m $MY_POWER -p $MY_LPAR	# opens terminal on my LPAR
+rmvterm -m $MY_POWER -p $MY_LPAR		# closes terminal on my LPAR
+
+lssyscfg -m $MY_POWER -r lpar -F name,lpar_id,state,default_profile	#see LPAR's settings (important is default_profile to be used with -f above)
+lssyscfg -r sys -F name:type_model:serial_num					# lists fields for every managed system
+
+lshwres -r mem -m $MY_POWER --level lpar -F "lpar_name,curr_mem" | grep $MY_LPAR
+chhwres -r mem -m $MY_POWER -p $MY_LPAR -o r -q 256 #remove
+chhwres -r mem -m $MY_POWER -p $MY_LPAR -o a -q 256	#add
+
+#list, remove and add memory
+lshwres -r mem -m <serwer_na_którym_jest_lpar> --level lpar -F "lpar_name,curr_mem" | grep <nazwa_lpara>
+now we list how much ram LPARhas. Then we substract 256MB of ram.
+chhwres -r mem -m <serwer_na_którym_jest_lpar> -p <nazwa_lpara> -o r -q 256
+
+**********************************************************************
+* Installation settings for dhlverpdb02t1.dhl.de.sni.ibm.com          *
+* Client Address : 172.17.144.9                        *
+* Server Address : 158.98.145.166                      *
+* Gateway Address: 172.17.144.1                        *
+* Subnet  Mask   : 255.255.255.128                     *
+* Server Gateway : 158.98.145.190                      *
+* *
+* Target adapter netparams (adapter: ent2)                 *
+* use_alt_addr = no                                    *
+**********************************************************************
+
+/etc/hosts:
+158.98.145.163 gsnpinsts3.frankfurt.de.sni.ibm.com
+158.98.66.196 rcmbroker1.dhl.de.sni.ibm.com
+
+chdev -l sys0 -a max_logname=128
+getconf LOGIN_NAME_MAX  
+
+for i in `perl -e 'print join(" ", 0..13)'` ; do echo hdisk$i: $(lsattr -a unique_id -El hdisk$i | cut -c 16-47); done;
+for emcdisk in $(lsdev -C -cdisk -Fname); do emcsize=$(bootinfo -s $emcdisk) && echo ${emcdisk}: ${emcsize}; done;
+
+
+
+rcmbroker1
+rcmbroker2
+
+#TCP?!? better not
+#mount -o ro,proto=tcp gsnpinsts3.frankfurt.de.sni.ibm.com:/usr/sys/inst.images/AIX /usr/sys/inst.images/AIX
+mount -o ro gsnpinsts3.frankfurt.de.sni.ibm.com:/usr/sys/inst.images/AIX /usr/sys/inst.images/AIX
+make_appls.pl -s SAN:prereq --source local
+
+tail -f /var/db/work/rcm.debug
+
+make_appls.pl --installperl --source local
+make_appls.pl --installrcm --source local
+make_appls.pl --all --source local
+make_network.pl --entity route
+make_storage.pl --all --mirror
+
+https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/IDC%20Wroclaw%20-%20Unix/page/Budowanie%20i%20konfiguracja%20serwera
+http://www.linuxjournal.com/content/return-values-bash-functions
+http://www.linuxjournal.com/content/bash-preserving-whitespace-using-set-and-eval
+
+rc.db.pl and tail log	
+
+

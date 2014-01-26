@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2013-11-05T15:23:27+01:00
+
+====== Migration ======
+Created Tuesday 05 November 2013
+
+[ ] **save /etc/passwd** file and change root password(We don't know the root password and we need it to login):
+[ ] Take output of **mounted FS**
+[ ] Take output of **routing table**
+[ ] **Perform the migration using screen** session(in case the connection breaks down):
+	* to create a session
+		screen -S migration
+	* to list the sessions
+		screen -list
+	* to dettach to a session
+		screen -d
+	* to attach to a session
+		screen -r <session_name>
+	* to attach to an already created session
+		screen -x <session_name>
+	* to remove a dettached session
+		screen -XS <session_name> quit
+
+**>** /Pctm_prog/pctma/ctm/scripts/shut-ag -u pctma -p ALL
+**>** umount /Pctm_prog
+**>** chlv -n lv_pctm_ag lv_pctm_agent
+**>** mount /Pctm_prog
+**>** /Pctm_prog/pctma/ctm/scripts/start-ag -u pctma -p ALL
+
+nimadm -c **client_name** -s spot-aix710-SP5 -a preSDDPCMOSmigration -z postSDDPCMOSmigration -l lppsource-aix710-SP5 -d hdisk9 -Y > /tmp/migration.log
+

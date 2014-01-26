@@ -1,0 +1,100 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-10T09:17:07+01:00
+
+====== LPM ======
+Created Friday 10 January 2014
+
+##############################
+
+**check migration status**
+lslparmigr -r lpar -m $POWER_M_NAME -F name,migration_state,bytes_transmitted,bytes_remaining
+
+
+##############################
+
+LPM wave 2:
+Server-9117-MMA-SN65DE5FC
+IBMCC2742 SN06375D4
+IBMCC1742 SN6558A60
+
+#Source:	Dest:	Lpar:
+#65DE5FC	06375D4	PRE_pretdiv2		double wwpns not zoned?			recheck
+#migrlpar -d 0 -o v -m Server-9117-MMA-SN65DE5FC -t IBMCC2742 -p PRE_pretdiv2 -i 'virtual_fc_mappings="7/ibmvcc2742a1//37,8/ibmvcc2742a1//38,9/ibmvcc2742a2//37,10/#ibmvcc2742a2//38",virtual_scsi_mappings="11/ibmvcc2742a1//15,12/ibmvcc2742a2//15,13/ibmvcc2742a1//16,14/ibmvcc2742a2//16"' --mpio 2
+
+#65DE5FC	6558A60	PRE_preteppp01		RMC is working.				
+#no errors
+
+65DE5FC	6558A60	PRE_preterpzt01	unused adapters in place, zining problem - corrected
+migrlpar -d 0 -o v -m Server-9117-MMA-SN65DE5FC -t IBMCC1742 -p PRE_preterpzt01 -i 'virtual_fc_mappings="7/ibmvcc1742a1//37,9/ibmvcc1742a2//38",virtual_scsi_mappings="11/ibmvcc1742a1//15,12/ibmvcc1742a2//15,13/ibmvcc1742a1//16,14/ibmvcc1742a2//16"' --mpio 2
+
+
+Current tape adapters:
+[preterpzt01:root:/home/root:] for i in fcs0 fcs1 fcs2 fcs3; do printf "$i;";lscfg -vpl $i|grep Network; done
+fcs0;        Network Address.............C050760347640048
+fcs1;        Network Address.............C05076034764004A
+fcs2;        Network Address.............C05076034764004C
+fcs3;        Network Address.............C05076034764004E
+Two adapters were removed because were unused
+
+[pretdiv2:root:/home/root:] for i in fcs0 fcs1 fcs2 fcs3; do printf "$i;";lscfg -vpl $i|grep Network; done
+fcs0;        Network Address.............C050760347640058
+fcs1;        Network Address.............C05076034764005A
+fcs2;        Network Address.............C05076034764005C
+fcs3;        Network Address.............C05076034764005E
+
+[preteppp01:root:/home/root:] for i in fcs0 fcs1 fcs2 fcs3; do printf "$i;";lscfg -vpl $i|grep Network; done
+fcs0;        Network Address.............C050760347640062
+fcs1;        Network Address.............C050760347640064
+fcs2;        Network Address.............C050760347640066
+fcs3;        Network Address.............C050760347640068
+Curently those adapters were removed because no tapes were visible
+
+Previous changes:
+CH10213128
+CH10213980
+
+Please mix both changes and creates one for pretdiv2 as a first one.
+So LPM, task for SAP, task for recreation adapters if required (I'll help you with this case because VIO support is required or somebody from VIO team), task for applying path, reconfigure and test Lanfree backup on os instance etc.
+Please schedule first task on Thursday. Tomorrow I have a call where we will discuss schedule.
+
+##############################
+
+
+migrlpar -d 0 -o v -m Server-9117-MMA-SN65DE5FC -t IBMCC1742 -p PRE_preterpzt01 -i 'virtual_fc_mappings="7/ibmvcc1742a1//37,9/ibmvcc1742a2//37",virtual_scsi_mappings="11/ibmvcc1742a1//15,12/ibmvcc1742a2//15,13/ibmvcc1742a1//16,14/ibmvcc1742a2//16"' 
+
+PRE_preterpzt01
+
+
+virtual_fc_mappings
+7/ibmvcc1742a1//37
+8/ibmvcc1742a1//38
+9/ibmvcc1742a2//37
+10/ibmvcc1742a2//38
+
+virtual_scsi_mappings
+11/ibmvcc1742a1//15
+12/ibmvcc1742a2//15
+13/ibmvcc1742a1//16
+14/ibmvcc1742a2//16
+
+V_FC
+7/ibmvcc2742a1//37
+8/ibmvcc2742a1//38
+9/ibmvcc2742a2//37
+10/ibmvcc2742a2//38
+
+V_SCSI
+11/ibmvcc2742a1//15
+12/ibmvcc2742a2//15
+13/ibmvcc2742a1//16
+14/ibmvcc2742a2//16
+
+
+
+
+
+
+
+
+migrlpar -d 0 -o v -m Server-9117-MMA-SN65DE5FC -t IBMCC1742 -p PRE_preterpzt01 -i 'virtual_fc_mappings="7/ibmvcc1742a1//37,9/ibmvcc1742a2//38",virtual_scsi_mappings="11/ibmvcc1742a1//15,12/ibmvcc1742a2//15,13/ibmvcc1742a1//16,14/ibmvcc1742a2//16"' --mpio 2
