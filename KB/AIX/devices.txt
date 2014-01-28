@@ -10,6 +10,18 @@ lsdev -F parent -l hdisk3
 lsdev -l vscsi0
 lsdev -p device
 
+**SVC LUN breakdown**
+odmget -q "name like hdisk* AND attribute=unique_id" CuAt
+483333213**6005076123456**//1CFF//0000000000002E604214503IBMfcp05VDASD03AIXvscsi	**for vscsi disks**
+33213**6005076123456**//1CFF//8000000000001E104214503IBMfcp 					**for physical FC disks**
+
+In both cases 6005076123456 is the WWN of the SVC box, 1CFF is the storage serial number and
+some of the next 15 numbers represent the lun. But how many? I know it's at least the last
+4 (02E6 and 01E1 in this example). 2145 identifies the SVC.
+
+From physical FC disk (unique_id) "3321360050761234561CFF8000000000001E104214503IBMfcp"
+pattern 60050761234561CFF8000000000001E1 represents the LUN Serial Number as seen in the lscfg.
+
 **list all disks UNIQUE_ID**
 lsdev -Cc disk -F name | while read hdisk; do
   echo ${hdisk},$(odmget -q "name=${hdisk} and attribute=unique_id" CuAt|grep value|cut -d '"' -f2)

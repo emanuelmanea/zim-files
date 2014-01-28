@@ -62,7 +62,7 @@ hasło do kdb start2012
 **Approval Groups Maximo1**
 oracle prehowe -> I-AHS-DE-SSOARCHIVING
 I-SSO-PL-SMD-UNI-DACH
-I-AHS-PL-ERP-SAP
+I-AHS-PL-ERP-SAP (also for IXOS)
 I-SSO-PL-OPS-COP-SHARED
 I-SMG-HU-CSC
 I-SMG-HU-CSM

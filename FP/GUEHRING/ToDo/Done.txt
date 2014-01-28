@@ -5,5 +5,4 @@ Creation-Date: 2014-01-24T14:40:14+01:00
 ====== Done ======
 Created Friday 24 January 2014
 
-**CH10218087 - **sudoers violation
-gued0001 and gued0003	
+**CH10218087 - **sudoers violation(gued0001 and gued0003)
