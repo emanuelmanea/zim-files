@@ -5,6 +5,9 @@ Creation-Date: 2013-11-05T11:46:43+01:00
 ====== AIX Printing ======
 Created Tuesday 05 November 2013
 
+**list print queues**
+qchk
+
 **#lists PRINTERS JOBS and QUEUE SIZE**
 dir=/var/spool/lpd/qdir
 printers=$(ls -l $dir | cut -c68-71 | uniq )

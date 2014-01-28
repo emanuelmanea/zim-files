@@ -10,6 +10,11 @@ lsdev -F parent -l hdisk3
 lsdev -l vscsi0
 lsdev -p device
 
+**list all disks UNIQUE_ID**
+lsdev -Cc disk -F name | while read hdisk; do
+  echo ${hdisk},$(odmget -q "name=${hdisk} and attribute=unique_id" CuAt|grep value|cut -d '"' -f2)
+done
+
 **List WWPN**
 datapath query wwpn
 

@@ -7,27 +7,131 @@ Created Tuesday 21 January 2014
 
 CH10217371  - it this change will be executed starting from next month Preh will be supported in ESS6.
 
-
-**after LPM**
-1. check and configure tapes and lanfree backup
-2. unmap LUNs from old VIOS
+1. check and configure tapes and lanfree backup for preterpzt01
+2. unmap LUNs for preterpzt01 from old VIOS(ibmvio203s1, ibmvio203s2) **CH10219002-pending**
 3. shutdown and activate LPAR to clear firmware error (before every LPAR shutdown save current configuration)
+4. add 4GB to pretdiv1
+5. create zoning for wave 3 LPM (**CH10218986-pending**):
+	a. PRE_prepbip423	65DE5FC -> 6558A60
+	b. PRE_prepixsm1	65DE5FC -> 6558A60
+	c. PRE_preppipx1	65DE5FC -> 06375D4
+	d. PRE_prepsrmpk1	65DE5FC -> 06375D4
 
-**change**
-to add 4GB RAM setting in profile.
+Power Machines:
+Source: 
+	Server-9117-MMA-SN65DE5FC
+Destination
+	IBMCC1742 SN6558A60
+	IBMCC2742 SN06375D4
 
-{{./pasted_image.png}}
+LPARs:
+PRE_prepbip423
+PRE_prepixsm1
+PRE_preppipx1
+PRE_prepsrmpk1
 
-There was 5G minimum, 24G current and 24G maximum. I already doubled min and max in profile. 
-We decided with Marco to double settings for all preh server, ofcourse min and maximum values, before each system reboot so please remember about it.
+VIO Servers:
+	ibmvcc1742a1
+	ibmvcc1742a2
+	ibmvcc2742a1
+	ibmvcc2742a2
+
+
+ibmvcc1742a1
+Adapter Name    PortWWN
+fscsi0		10000090FA2B74BC
+fscsi1		10000090FA2B74BD
+fscsi2		10000090FA2B52D6
+fscsi3		10000090FA2B52D7
+fscsi4		10000090FA2B513A
+fscsi5		10000090FA2B513B
+fscsi6		10000090FA2B5162
+fscsi7		10000090FA2B5163
+fscsi8		10000090FA2B547E
+fscsi9		10000090FA2B547F
+fscsi10		10000090FA2B5224
+fscsi11		10000090FA2B5225
+
+ibmvcc1742a2
+Adapter Name    PortWWN
+fscsi0		10000090FA2B52EA
+fscsi1		10000090FA2B52EB
+fscsi2		10000090FA2B5504
+fscsi3		10000090FA2B5505
+fscsi4		10000090FA2B52E4
+fscsi5		10000090FA2B52E5
+fscsi6		10000090FA2B5266
+fscsi7		10000090FA2B5267
+fscsi8		10000090FA2B528C
+fscsi9		10000090FA2B528D
+fscsi10		10000090FA2B552E
+fscsi11		10000090FA2B552F
+
+ibmvcc2742a1
+Adapter Name    PortWWN
+fscsi0		10000090FA2B5458
+fscsi1		10000090FA2B5459
+fscsi2		10000090FA2B5316
+fscsi3		10000090FA2B5317
+fscsi4		10000090FA2B5176
+fscsi5		10000090FA2B5177
+fscsi6		10000090FA2B540A
+fscsi7		10000090FA2B540B
+fscsi8		10000090FA2B52D4
+fscsi9		10000090FA2B52D5
+fscsi10		10000090FA2B5112
+fscsi11		10000090FA2B5113
+
+ibmvcc2742a2
+Adapter Name    PortWWN
+fscsi0		10000090FA2B50C0
+fscsi1		10000090FA2B50C1
+fscsi2		10000090FA2B56B6
+fscsi3		10000090FA2B56B7
+fscsi4		10000090FA2B5588
+fscsi5		10000090FA2B5589
+fscsi6		10000090FA2B5216
+fscsi7		10000090FA2B5217
+fscsi8		10000090FA2B51E2
+fscsi9		10000090FA2B51E3
+fscsi10		10000090FA2B54D2
+fscsi11		10000090FA2B54D3
+
+ibmvio203s1
+Adapter Name    PortWWN
+fscsi0		10000000C9A3A70E
+fscsi1		10000000C9A3A70F
+fscsi2		10000000C9F17976
+fscsi3		10000000C9F17977
+fscsi4		10000000C9A47AB2
+fscsi5		10000000C9A47AB3
+fscsi6		10000000C9D00558
+fscsi7		10000000C9D00559
+
+ibmvio203s2
+Adapter Name    PortWWN
+fscsi0		10000000C9A47FB6
+fscsi1		10000000C9A47FB7
+fscsi2		10000000C9D00B16
+fscsi3		10000000C9D00B17
+fscsi4		10000000C9A3A800
+fscsi5		10000000C9A3A801
+fscsi6		10000000C9F16230
+fscsi7		10000000C9F16231
 
 #######################################
 
 **PANDORA report**
-{{./pasted_image001.png}}
-{{./pasted_image002.png}}
-{{./pasted_image003.png}}
-{{./pasted_image004.png}}Backup Failed
+**Backup Failed**
+prepbip423
+prepeppp01
+preppipx1
+prepixsm1
+prepsrmpk1
+pretdiv1
+pretdiv2
+preterpzt01
+
 
 What is/How to correct:
 	Unknown production status
