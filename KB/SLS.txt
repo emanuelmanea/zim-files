@@ -1,8 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2013-12-02T14:54:14+01:00
-
-====== SLS ======
-Created Monday 02 December 2013
-
-scp -S /home/emanuel/sshauthfw.pl /home/emanuel/PREH/* sls4root@sas.ehn.esni.ibm.com:/root@preterpzt01/home/root

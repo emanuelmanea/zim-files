@@ -1,8 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2013-11-14T09:44:19+01:00
-
-====== SAP ======
-Created Thursday 14 November 2013
-
-[[/xib]] filesystem

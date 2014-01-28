@@ -1,7 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2013-11-21T10:10:02+01:00
-
-====== AWK ======
-Created Thursday 21 November 2013
-

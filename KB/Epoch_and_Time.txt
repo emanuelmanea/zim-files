@@ -1,9 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2013-11-12T14:24:53+01:00
-
-====== Epoch and Time ======
-Created Tuesday 12 November 2013
-
-EPOCH=$(sudo pwdadm -q plp70065|grep last|awk '{print $3}') ; perl -e "print scalar(localtime($EPOCH)), \"\n\""
-

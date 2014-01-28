@@ -1,7 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2014-01-27T12:11:40+01:00
-
-====== AURUBIS ======
-Created Monday 27 January 2014
-

@@ -1,7 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2014-01-19T12:06:20+01:00
-
-====== VMware ======
-Created Sunday 19 January 2014
-
